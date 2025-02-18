@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  
+body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Custom Scrollbar Styling */
+
+/* 웹킷 브라우저 (Chrome, Safari 등) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #2d2d2d; /* 트랙 배경 색상 */
+    }
+
+::-webkit-scrollbar-thumb {
+    background: #4a4a4a; /* 스크롤 thumb 색상 */
+    border-radius: 4px;
+    }
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6c6c6c;
+    }
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4a4a4a #2d2d2d;
+    }
+  
+
+  
