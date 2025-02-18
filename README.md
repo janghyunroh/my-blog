@@ -9,7 +9,7 @@
 - Firebase를 통한 웹 배포를 진행할 계획입니다. 
 
 ## 프로젝트 레이아웃
-
+```
 / (프로젝트 루트)
 ├─ posts/                // 마크다운 파일 저장 폴더 (혹은 content/posts/)
 ├─ src/
@@ -30,7 +30,7 @@
 ├─ styles/
 │  └─ globals.css        // Tailwind CSS 지시문 포함
 └─ package.json
-
+```
 ## Next.js README
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
