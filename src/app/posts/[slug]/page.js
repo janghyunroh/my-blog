@@ -1,23 +1,31 @@
 // src/app/posts/[slug]/page.js
-import { notFound } from 'next/navigation';
-import { getPostData, markdownToHtml } from '@/lib/markdown';
+import { notFound } from "next/navigation";
+import { getPostData, markdownToHtml, getAllPosts } from "@/lib/markdown";
 
 export async function generateStaticParams() {
-  // posts 디렉토리 내 모든 마크다운 파일의 slug 목록을 반환
-  // 예: ['post1', 'post2', ...]
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
-export default async function PostPage({ params }) {
+export default async function PostPage(props) {
+  // await를 사용하여 params 객체를 안전하게 받아옵니다.
+  const params = await Promise.resolve(props.params);
   const { slug } = params;
-  const post = getPostData(`${slug}.md`);
-  if (!post) {
+
+  const { data, content } = getPostData(`${slug}.md`);
+
+  if (!data) {
     notFound();
   }
-  const contentHtml = await markdownToHtml(post.content);
+
+  const contentHtml = await markdownToHtml(content);
 
   return (
-    <article className="prose mx-auto py-10">
-      <h1>{post.data.title}</h1>
+    <article className="prose prose-invert mx-auto py-12 animate-fadeInUp">
+      <h1>{data.title}</h1>
+      <p className="text-gray-500">{data.date}</p>
       <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
     </article>
   );

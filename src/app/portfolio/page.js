@@ -1,7 +1,7 @@
 // src/app/portfolio/page.js
 export default function PortfolioPage() {
     return (
-      <div className=""> {/* 네비게이션 바 아래로 충분한 여백 추가 */}
+      <div className="py-12 animate-fadeInUp"> {/* 네비게이션 바 아래로 충분한 여백 추가 */}
         <h1 className="text-3xl font-bold mb-6">Portfolio</h1>
         <div className="space-y-6">
           {Array.from({ length: 30 }).map((_, idx) => (

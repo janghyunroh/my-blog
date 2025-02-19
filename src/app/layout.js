@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import MouseLightEffect from "@/components/MouseLightEffect"; // 추가
+import MouseLightEffect from "@/components/MouseLightEffect";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,9 +19,8 @@ export default function RootLayout({ children }) {
     <html lang="ko" className={`${inter.className} dark`}>
       <body className="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
         <Navbar />
-        {/* 마우스 광원 효과 추가 */}
         <MouseLightEffect />
-        <main className="flex-grow px-28 pt-28">
+        <main className="flex-grow px-28 pt-28 animate-fadeInUp">
           {children}
         </main>
         <Footer />

@@ -21,25 +21,25 @@ export default function Navbar() {
         <div className="text-gray-700 dark:text-gray-300 font-medium">
           Seoul/Korea
         </div>
-        {/* 중앙: 메뉴 컨테이너 (둥근 직사각형) */}
+        {/* 중앙: 메뉴 컨테이너 */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow px-6 py-3">
           <ul className="flex space-x-8">
             {navItems.map((item) => {
               const isActive = pathname === item.path;
               return (
-                <li key={item.path} className="relative group">
+                // min-w-[120px] 같은 최소 너비를 지정하여 텍스트 너비 변화에 따른 레이아웃 이동을 방지
+                <li key={item.path} className="relative group min-w-[120px]">
                   <Link
                     href={item.path}
-                    className={`relative z-10 flex items-center px-3 py-1 transition-colors duration-300 ${
+                    className={`relative z-10 flex items-center justify-center px-3 py-1 transition-colors duration-300 ${
                       isActive
                         ? "text-white font-semibold"
-                        : "text-gray-700 dark:text-gray-300"
+                        : "text-gray-700 dark:text-gray-300 font-semibold"
                     }`}
                   >
                     {item.icon}
                     {item.name}
                   </Link>
-                  {/* 배경 효과: active 또는 hover 시 부드럽게 나타남 */}
                   <span
                     className={`absolute inset-0 bg-blue-500 rounded-md transition-opacity duration-300 ${
                       isActive ? "opacity-100" : "opacity-0"
