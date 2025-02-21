@@ -1,5 +1,5 @@
 ---
-title: "Random Process Ch 0. "
+title: "랜덤 프로세스 Ch 0. "
 date: "2025-02-19"
 ---
 

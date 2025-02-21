@@ -1,4 +1,3 @@
-// src/components/PostList.js
 "use client";
 
 import Link from "next/link";
@@ -16,7 +15,9 @@ export default function PostList({ posts }) {
               className="block border border-gray-300 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
             >
               <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{post.date}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {new Date(post.date).toLocaleDateString()}
+              </p>
               {post.excerpt && (
                 <p className="mt-4 text-gray-700 dark:text-gray-300">{post.excerpt}</p>
               )}

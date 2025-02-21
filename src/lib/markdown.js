@@ -3,6 +3,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
+import remarkMath from "remark-math";
+import remarkRehype from "remark-rehype";
+import rehypeKatex from "rehype-katex";
+import rehypeStringify from "rehype-stringify";
 import html from "remark-html";
 
 // 마크다운 파일이 저장된 폴더 (프로젝트 루트의 posts)
@@ -16,7 +20,12 @@ export function getPostData(fileName) {
 }
 
 export async function markdownToHtml(markdownContent) {
-  const processedContent = await remark().use(html).process(markdownContent);
+  const processedContent = await remark()
+    .use(remarkMath)
+    .use(remarkRehype)
+    .use(rehypeKatex)
+    .use(rehypeStringify)
+    .process(markdownContent);
   return processedContent.toString();
 }
 
