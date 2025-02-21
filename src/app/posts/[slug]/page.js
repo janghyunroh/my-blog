@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { getPostData } from '@/lib/posts';
 import { fetchMarkdownContent } from '@/lib/fetchMarkdown';
 import { markdownToHtml } from '@/lib/markdown'; // LaTeX 지원 등 포함된 함수
 import { getAllPosts, getPostData } from '@/lib/posts';
